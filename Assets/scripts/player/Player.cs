@@ -90,17 +90,22 @@ public class Player : MonoBehaviour
 
     IEnumerator TakeDamage()
     {
-        anim.SetBool("hurt", true);
-        health -= 1;
-        lifeBar.value = health;
-        rb.gravityScale = 5;
-        yield return SwitchColor();
-        rb.gravityScale = 3;
-
-        if (health <= 0)
+        if (gameObject.tag == "Player")
         {
-            Time.timeScale = 0;
-            Destroy(gameObject);
+            gameObject.tag = "playerDamaged";
+            anim.SetBool("hurt", true);
+            health -= 1;
+            lifeBar.value = health;
+            rb.gravityScale = 5;
+            yield return SwitchColor();
+            rb.gravityScale = 3;
+
+            if (health <= 0)
+            {
+                Time.timeScale = 0;
+                Destroy(gameObject);
+            }
+            gameObject.tag = "Player";
         }
     }
 

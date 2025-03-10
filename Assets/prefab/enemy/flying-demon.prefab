@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8226403455942704795}
   - component: {fileID: 8524453987413236252}
   - component: {fileID: 5958998478670013355}
-  - component: {fileID: 7166389248619808019}
   m_Layer: 0
   m_Name: flying-demon
   m_TagString: enemy
@@ -201,18 +200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
---- !u!114 &7166389248619808019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8288505212956525242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94903d817fb2bde48ae01c0be1c6970c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4212463571402319080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -227,19 +214,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7531997336973604604, guid: d5057f6978e23d2428577307c407d6d3, type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.28720707
+      value: -0.07490114
       objectReference: {fileID: 0}
     - target: {fileID: 7531997336973604604, guid: d5057f6978e23d2428577307c407d6d3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.6226404
+      value: 3.6842854
       objectReference: {fileID: 0}
     - target: {fileID: 7531997336973604604, guid: d5057f6978e23d2428577307c407d6d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.38
+      value: -1.71
       objectReference: {fileID: 0}
     - target: {fileID: 7531997336973604604, guid: d5057f6978e23d2428577307c407d6d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.4529
+      value: 0.0779
       objectReference: {fileID: 0}
     - target: {fileID: 7531997336973604604, guid: d5057f6978e23d2428577307c407d6d3, type: 3}
       propertyPath: m_LocalPosition.z

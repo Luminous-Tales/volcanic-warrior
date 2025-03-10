@@ -9,6 +9,7 @@ TagManager:
   - enemy
   - EnemyDamaged
   - Point
+  - playerDamaged
   layers:
   - Default
   - TransparentFX

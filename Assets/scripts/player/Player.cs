@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     private bool isActing;
 
+    public GameOverManager gameOverManager;
     public Slider lifeBar;
     public int point;
     void Start()
@@ -104,7 +105,9 @@ public class Player : MonoBehaviour
             {
                 Time.timeScale = 0;
                 Destroy(gameObject);
+                gameOverManager.ShowGameOver();
             }
+
             gameObject.tag = "Player";
         }
     }

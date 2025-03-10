@@ -1,31 +1,21 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
-    public int score = 0;
-    public TextMeshProUGUI scoreText;
-
-    private void Awake()
+    public void StartGame()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
+        SceneManager.LoadScene("game");
     }
 
-    public void AddScore(int points)
+    public void OpenConfiguration()
     {
-        score += points;
-        UpdateScoreUI();
+        //TODO: Adicionar lógica para abrir opções
     }
 
-    private void UpdateScoreUI()
+    public void QuitGame()
     {
-        if (scoreText != null)
-        {
-            scoreText.text = score.ToString();
-        }
+        Application.Quit();
     }
 }

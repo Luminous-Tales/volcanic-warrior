@@ -14,21 +14,20 @@ public class PointsGain : MonoBehaviour
             case "ghost(Clone)":
                 if (collision.CompareTag("hitbox"))
                 {
-                    GameManager.instance.AddScore(_pointsAttack);
+                    PointsManager.instance.AddScore(_pointsAttack);
                 }
                 break;
 
             case "PointBox":
                 if (collision.CompareTag("Player") && transform.parent.name == "flying-demon(Clone)")
                 {
-                    GameManager.instance.AddScore(_pointsDodge);
+                    PointsManager.instance.AddScore(_pointsDodge);
                 }
                 else if (collision.CompareTag("Player") && transform.parent.name == "skull(Clone)")
                 {
-                    GameManager.instance.AddScore(_pointsJump);
+                    PointsManager.instance.AddScore(_pointsJump);
                 }
-
-                    break;
+                break;
         }
 
     }

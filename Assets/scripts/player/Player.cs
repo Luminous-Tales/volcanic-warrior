@@ -103,8 +103,6 @@ public class Player : MonoBehaviour
 
             if (health <= 0)
             {
-                Time.timeScale = 0;
-                Destroy(gameObject);
                 gameOverManager.ShowGameOver();
             }
 

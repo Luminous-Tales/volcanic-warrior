@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PointsGain : MonoBehaviour
@@ -23,10 +24,14 @@ public class PointsGain : MonoBehaviour
                 {
                     PointsManager.instance.AddScore(_pointsDodge);
                 }
-                else if (collision.CompareTag("Player") && transform.parent.name == "skull(Clone)")
+                if (collision.CompareTag("Player") && transform.parent.name == "skull(Clone)")
                 {
                     PointsManager.instance.AddScore(_pointsJump);
                 }
+                break;
+
+            default:
+                Debug.Log("Erro");
                 break;
         }
 

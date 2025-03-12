@@ -1,13 +1,14 @@
-                                                using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
-    public GameObject gameOverScreen;
+    public Canvas gameOverScreen;
+
 
     public void ShowGameOver()
     {
-        gameOverScreen.SetActive(true);
+        gameOverScreen.gameObject.SetActive(true);
         Time.timeScale = 0f;
     }
 
@@ -20,11 +21,10 @@ public class GameOverManager : MonoBehaviour
     public void ReturnToMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
     }
     public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("Fechando o jogo"); // Isso só aparece no editor, não no build
+        Debug.Log("Fechando o jogo");
     }
 }

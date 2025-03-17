@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public Canvas pauseScreen;
+
     public void StartGame()
     {
         SceneManager.LoadScene("game");
@@ -11,7 +13,12 @@ public class GameManager : MonoBehaviour
 
     public void OpenConfiguration()
     {
-        //TODO: Adicionar lógica para abrir opções
+        pauseScreen.gameObject.SetActive(true);
+    }
+
+    public void CloseConfiguration()
+    {
+        pauseScreen.gameObject.SetActive(false);
     }
 
     public void QuitGame()

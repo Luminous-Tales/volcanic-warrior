@@ -97,14 +97,15 @@ public class Player : MonoBehaviour
             anim.SetBool("hurt", true);
             health -= 1;
             lifeBar.value = health;
-            rb.gravityScale = 5;
-            yield return SwitchColor();
-            rb.gravityScale = 3;
 
             if (health <= 0)
             {
                 gameOverManager.ShowGameOver();
             }
+
+            rb.gravityScale = 5;
+            yield return SwitchColor();
+            rb.gravityScale = 3;
 
             gameObject.tag = "Player";
         }

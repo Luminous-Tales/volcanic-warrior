@@ -5,17 +5,21 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 7f;
-
+    private VelocityController gameController;
     private Rigidbody2D rb;
 
     void Start()
     {
+        gameController = Object.FindFirstObjectByType<VelocityController>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        rb.linearVelocity = new Vector2(-speed, rb.linearVelocity.y);
+        if (gameController != null)
+        {
+            rb.linearVelocity = new Vector2(-gameController.CurrentSpeed * 2, rb.linearVelocity.y);
+        }
     }
 }
+

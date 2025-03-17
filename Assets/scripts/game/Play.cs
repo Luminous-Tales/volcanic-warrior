@@ -7,6 +7,7 @@ public class Play : MonoBehaviour
     public GameObject ground;
     public GameObject player;
     public GameObject background;
+    private VelocityController gameController;
 
     public GameObject[] enemys;
 
@@ -15,12 +16,15 @@ public class Play : MonoBehaviour
     public TextMeshProUGUI distanceText;
 
     public float speed = 5f;
+    public float acceleration = 0.1f;
     private float elapsedTime = 0f;
     private bool isGameOver = false;
-    private float distance;
+
     void Start()
     {
+        gameController = Object.FindFirstObjectByType<VelocityController>();
         StartCoroutine(SpawnEnemy());
+
     }
 
     void Update()
@@ -30,7 +34,7 @@ public class Play : MonoBehaviour
         elapsedTime += Time.deltaTime;
         timeText.text = elapsedTime.ToString("F2") + "s";
 
-        distance = elapsedTime * speed;
+        float distance = elapsedTime * gameController.CurrentSpeed;
         distanceText.text = distance.ToString("F2") + "m";
     }
 
@@ -38,29 +42,23 @@ public class Play : MonoBehaviour
     {
         while (!isGameOver)
         {
-            yield return new WaitForSeconds(5);
+            float spawnRate = Mathf.Max(1f, 5f - gameController.CurrentSpeed * 0.2f);
+            yield return new WaitForSeconds(spawnRate);
 
             if (enemys.Length > 0)
             {
                 int randomIndex = Random.Range(0, enemys.Length);
                 GameObject newEnemy = Instantiate(enemys[randomIndex]);
+
                 Destroy(newEnemy, 5f);
             }
         }
     }
 
+
     public void OnGameOver()
     {
         isGameOver = true;
-        StopAllCoroutines();
-
-        float bestDistance = PlayerPrefs.GetFloat("BestDistance", 0);
-        float currentDistance = elapsedTime * speed;
-
-        if (currentDistance > bestDistance)
-        {
-            PlayerPrefs.SetFloat("BestDistance", currentDistance);
-            PlayerPrefs.Save();
-        }
+        gameController.GameOver();
     }
 }

@@ -5,10 +5,20 @@ using UnityEngine;
 public class BackgroundScroll : MonoBehaviour
 {
     public MeshRenderer mr;
-    public float speed; 
+    private VelocityController gameController;
+
+    void Start()
+    {
+        gameController = Object.FindFirstObjectByType<VelocityController>();
+    }
 
     void Update()
     {
-        mr.material.mainTextureOffset = new Vector2(Mathf.Repeat(mr.material.mainTextureOffset.x + speed * Time.deltaTime, 1), 0);
+        if (gameController != null)
+        {
+            float speed = gameController.CurrentSpeed * 0.1f;
+            mr.material.mainTextureOffset += new Vector2(speed * Time.deltaTime, 0);
+        }
     }
+
 }

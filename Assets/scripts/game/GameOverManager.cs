@@ -4,11 +4,12 @@ using UnityEngine.SceneManagement;
 public class GameOverManager : MonoBehaviour
 {
     public Canvas gameOverScreen;
-
+    public Canvas hudScreen;
 
     public void ShowGameOver()
     {
         gameOverScreen.gameObject.SetActive(true);
+        hudScreen.gameObject.SetActive(false);
         Time.timeScale = 0f;
     }
 

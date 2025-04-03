@@ -32,10 +32,10 @@ public class Play : MonoBehaviour
         if (isGameOver) return;
 
         elapsedTime += Time.deltaTime;
-        timeText.text = elapsedTime.ToString("F2") + "s";
+        timeText.text = elapsedTime.ToString("F2");
 
         float distance = elapsedTime * gameController.CurrentSpeed;
-        distanceText.text = distance.ToString("F2") + "m";
+        distanceText.text = distance.ToString("F2");
     }
 
     IEnumerator SpawnEnemy()
@@ -60,5 +60,11 @@ public class Play : MonoBehaviour
     {
         isGameOver = true;
         gameController.GameOver();
+        
+        GameDataManager.instance.SaveGameData(
+            PointsManager.instance.score,
+            elapsedTime,
+            elapsedTime * gameController.CurrentSpeed
+        );
     }
 }

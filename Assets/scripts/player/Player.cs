@@ -115,10 +115,15 @@ public class Player : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            sr.color = Color.red;
-            yield return new WaitForSeconds(0.2f);
-            sr.color = Color.white;
-            yield return new WaitForSeconds(0.2f);
+            yield return SwitchColor(Color.red, 0.2f);
         }
+    }
+
+    IEnumerator SwitchColor(Color color, float duration)
+    {
+        sr.color = color;
+        yield return new WaitForSeconds(duration);
+        sr.color = Color.white;
+        yield return new WaitForSeconds(duration);
     }
 }
